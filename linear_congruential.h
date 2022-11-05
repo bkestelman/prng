@@ -4,14 +4,13 @@ class LinearCongruentialGenerator {
 	long long modulus;
 	int multiplier;
 	int increment;
-	int seed {0};
-	int state;
+	int state {0}; // default seed is 0
 
 	void updateState(); // computes the next state; called by randint and randfloat
 
 public:
 	LinearCongruentialGenerator(long long modulus, int multiplier, int increment);
-	int getSeed() { return seed; };
+	void seed(int seed) { state = seed; };
 	long long getModulus() { return modulus; };
 
 	int rand();

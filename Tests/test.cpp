@@ -2,8 +2,14 @@
 #include "../linear_congruential.h"
 #include <limits.h>
 TEST(TestLinearCongruentialGenerator, TestDefaultSeed) {
-	LinearCongruentialGenerator lcg { 9, 4, 1 };
-	EXPECT_EQ(lcg.getSeed(), 0);
+	LinearCongruentialGenerator lcg { 9, 1, 0 };
+	EXPECT_EQ(lcg.rand(), 0); // with 0 increment, rand should return the seed
+}
+
+TEST(TestLinearCongruentialGenerator, TestSetSeed) {
+	LinearCongruentialGenerator lcg{ 9, 1, 0 };
+	lcg.seed(5);
+	EXPECT_EQ(lcg.rand(), 5); // with 0 increment, rand should return the seed
 }
 
 TEST(TestLinearCongruentialGenerator, TestCycle) {
@@ -32,6 +38,7 @@ TEST(TestLinearCongruentialGenerator, TestFloatRange) {
 TEST(TestLinearCongruentialGenerator, TestLargeModulus) {
 	long long modulus = LLONG_MAX;
 	LinearCongruentialGenerator lcg{ modulus, 1, 0 }; /* 1 and 0 chosen so the result of rand will also be very large */
+	lcg.seed(modulus - 1);
 	EXPECT_EQ(modulus, lcg.getModulus());
 	EXPECT_EQ(lcg.rand(), modulus); /* Test that rand does not overflow with large modulus */
 }

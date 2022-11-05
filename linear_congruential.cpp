@@ -1,9 +1,7 @@
 #include "linear_congruential.h"
 
 LinearCongruentialGenerator::LinearCongruentialGenerator(long long modulus, int multiplier, int increment) :
-	modulus(modulus), multiplier(multiplier), increment(increment) {
-	state = seed;
-};
+	modulus(modulus), multiplier(multiplier), increment(increment) {};
 
 void LinearCongruentialGenerator::updateState() {
 	state = (multiplier * state + increment) % modulus;
