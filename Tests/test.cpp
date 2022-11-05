@@ -8,15 +8,15 @@ TEST(TestLinearCongruentialGenerator, TestDefaultSeed) {
 
 TEST(TestLinearCongruentialGenerator, TestCycle) {
 	LinearCongruentialGenerator lcg{ 9, 4, 1 };
-	EXPECT_EQ(lcg.randint(), 1);
-	EXPECT_EQ(lcg.randint(), 5);
-	EXPECT_EQ(lcg.randint(), 3);
-	EXPECT_EQ(lcg.randint(), 4);
-	EXPECT_EQ(lcg.randint(), 8);
-	EXPECT_EQ(lcg.randint(), 6);
-	EXPECT_EQ(lcg.randint(), 7);
-	EXPECT_EQ(lcg.randint(), 2);
-	EXPECT_EQ(lcg.randint(), 0);
+	EXPECT_EQ(lcg.rand(), 1);
+	EXPECT_EQ(lcg.rand(), 5);
+	EXPECT_EQ(lcg.rand(), 3);
+	EXPECT_EQ(lcg.rand(), 4);
+	EXPECT_EQ(lcg.rand(), 8);
+	EXPECT_EQ(lcg.rand(), 6);
+	EXPECT_EQ(lcg.rand(), 7);
+	EXPECT_EQ(lcg.rand(), 2);
+	EXPECT_EQ(lcg.rand(), 0);
 }
 
 TEST(TestLinearCongruentialGenerator, TestFloatRange) {
@@ -31,6 +31,7 @@ TEST(TestLinearCongruentialGenerator, TestFloatRange) {
 
 TEST(TestLinearCongruentialGenerator, TestLargeModulus) {
 	long long modulus = LLONG_MAX;
-	LinearCongruentialGenerator lcg{ modulus, 4, 1 };
+	LinearCongruentialGenerator lcg{ modulus, 1, 0 }; /* 1 and 0 chosen so the result of rand will also be very large */
 	EXPECT_EQ(modulus, lcg.getModulus());
+	EXPECT_EQ(lcg.rand(), modulus); /* Test that rand does not overflow with large modulus */
 }

@@ -14,6 +14,6 @@ public:
 	int getSeed() { return seed; };
 	long long getModulus() { return modulus; };
 
-	int randint();
+	int rand();
 	float randfloat(); // return a number between 0 and 1
 };
