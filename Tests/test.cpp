@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "../linear_congruential.h"
+#include <limits.h>
 TEST(TestLinearCongruentialGenerator, TestDefaultSeed) {
 	LinearCongruentialGenerator lcg { 9, 4, 1 };
 	EXPECT_EQ(lcg.getSeed(), 0);
@@ -26,4 +27,10 @@ TEST(TestLinearCongruentialGenerator, TestFloatRange) {
 		EXPECT_TRUE(rand <= 1);
 		EXPECT_TRUE(rand >= 0);
 	}
+}
+
+TEST(TestLinearCongruentialGenerator, TestLargeModulus) {
+	long long modulus = LLONG_MAX;
+	LinearCongruentialGenerator lcg{ modulus, 4, 1 };
+	EXPECT_EQ(modulus, lcg.getModulus());
 }

@@ -1,6 +1,6 @@
 #include "linear_congruential.h"
 
-LinearCongruentialGenerator::LinearCongruentialGenerator(int modulus, int multiplier, int increment) :
+LinearCongruentialGenerator::LinearCongruentialGenerator(long long modulus, int multiplier, int increment) :
 	modulus(modulus), multiplier(multiplier), increment(increment) {
 	state = seed;
 };
