@@ -7,7 +7,7 @@ void LinearCongruentialGenerator::updateState() {
 	state = (multiplier * state + increment) % modulus;
 }
 
-int LinearCongruentialGenerator::rand() {
+long long LinearCongruentialGenerator::rand() {
 	updateState();
 	return state;
 }

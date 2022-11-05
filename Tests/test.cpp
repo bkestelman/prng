@@ -38,7 +38,8 @@ TEST(TestLinearCongruentialGenerator, TestFloatRange) {
 TEST(TestLinearCongruentialGenerator, TestLargeModulus) {
 	long long modulus = LLONG_MAX;
 	LinearCongruentialGenerator lcg{ modulus, 1, 0 }; /* 1 and 0 chosen so the result of rand will also be very large */
-	lcg.seed(modulus - 1);
+	long long seed = modulus - 1;
+	lcg.seed(seed);
 	EXPECT_EQ(modulus, lcg.getModulus());
-	EXPECT_EQ(lcg.rand(), modulus); /* Test that rand does not overflow with large modulus */
+	EXPECT_EQ(lcg.rand(), seed); /* Test that rand does not overflow with large modulus */
 }
