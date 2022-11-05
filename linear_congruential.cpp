@@ -5,7 +5,16 @@ LinearCongruentialGenerator::LinearCongruentialGenerator(int modulus, int multip
 	state = seed;
 };
 
-int LinearCongruentialGenerator::random() {
+void LinearCongruentialGenerator::updateState() {
 	state = (multiplier * state + increment) % modulus;
+}
+
+int LinearCongruentialGenerator::randint() {
+	updateState();
 	return state;
+}
+
+float LinearCongruentialGenerator::randfloat() {
+	updateState();
+	return (float)state / modulus;
 }

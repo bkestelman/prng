@@ -7,13 +7,23 @@ TEST(TestLinearCongruentialGenerator, TestDefaultSeed) {
 
 TEST(TestLinearCongruentialGenerator, TestCycle) {
 	LinearCongruentialGenerator lcg{ 9, 4, 1 };
-	EXPECT_EQ(lcg.random(), 1);
-	EXPECT_EQ(lcg.random(), 5);
-	EXPECT_EQ(lcg.random(), 3);
-	EXPECT_EQ(lcg.random(), 4);
-	EXPECT_EQ(lcg.random(), 8);
-	EXPECT_EQ(lcg.random(), 6);
-	EXPECT_EQ(lcg.random(), 7);
-	EXPECT_EQ(lcg.random(), 2);
-	EXPECT_EQ(lcg.random(), 0);
+	EXPECT_EQ(lcg.randint(), 1);
+	EXPECT_EQ(lcg.randint(), 5);
+	EXPECT_EQ(lcg.randint(), 3);
+	EXPECT_EQ(lcg.randint(), 4);
+	EXPECT_EQ(lcg.randint(), 8);
+	EXPECT_EQ(lcg.randint(), 6);
+	EXPECT_EQ(lcg.randint(), 7);
+	EXPECT_EQ(lcg.randint(), 2);
+	EXPECT_EQ(lcg.randint(), 0);
+}
+
+TEST(TestLinearCongruentialGenerator, TestFloatRange) {
+	int modulus = 9;
+	LinearCongruentialGenerator lcg{ modulus, 4, 1 };
+	for (int i = 0; i < modulus; i++) {
+		float rand = lcg.randfloat();
+		EXPECT_TRUE(rand <= 1);
+		EXPECT_TRUE(rand >= 0);
+	}
 }
