@@ -3,13 +3,13 @@
 #include <limits.h>
 TEST(TestLinearCongruentialGenerator, TestDefaultSeed) {
 	LinearCongruentialGenerator lcg { 9, 1, 0 };
-	EXPECT_EQ(lcg.rand(), 0); // with 0 increment, rand should return the seed
+	EXPECT_EQ(lcg.rand(), 0); // with increment 0 and multiplier 1, rand should return the seed
 }
 
 TEST(TestLinearCongruentialGenerator, TestSetSeed) {
 	LinearCongruentialGenerator lcg{ 9, 1, 0 };
 	lcg.seed(5);
-	EXPECT_EQ(lcg.rand(), 5); // with 0 increment, rand should return the seed
+	EXPECT_EQ(lcg.rand(), 5); // with increment 0 and multiplier 1, rand should return the seed
 }
 
 TEST(TestLinearCongruentialGenerator, TestCycle) {

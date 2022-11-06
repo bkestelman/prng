@@ -6,7 +6,7 @@ class LinearCongruentialGenerator {
 	int increment;
 	long long state {0}; // default seed is 0
 
-	void updateState(); // computes the next state; called by randint and randfloat
+	void updateState(); // computes the next state; called by rand and randfloat
 
 public:
 	LinearCongruentialGenerator(long long modulus, int multiplier, int increment);
