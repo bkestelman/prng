@@ -1,18 +1,17 @@
 #pragma once
 
 class LinearCongruentialGenerator {
+protected:
 	long long modulus;
-	int multiplier;
-	int increment;
-	long long state {0}; // default seed is 0
+	long long state;
 
-	void updateState(); // computes the next state; called by rand and randfloat
+	virtual void updateState() = 0;
 
 public:
-	LinearCongruentialGenerator(long long modulus, int multiplier, int increment);
+	LinearCongruentialGenerator(long long modulus, long long state) : modulus(modulus), state(state) {};
 	void seed(long long seed) { state = seed; };
 	long long getModulus() { return modulus; };
 
-	long long rand();
-	float randfloat(); // return a number between 0 and 1
+	virtual long long rand() { updateState(); return state; }; // return a positive integer less than modulus
+	float randfloat() { return (float)rand() / modulus; }; // return a number between 0 and 1
 };

@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="linear_congruential.cpp">
+    <ClCompile Include="mixed_congruential.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="multiplicative_congruential.cpp">
@@ -27,6 +27,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="multiplicative_congruential.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mixed_congruential.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
