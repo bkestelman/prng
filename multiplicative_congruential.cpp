@@ -1,7 +1,8 @@
 #include "linear_congruential.h"
 #include "multiplicative_congruential.h"
+#include <cstdint>
 
-MultiplicativeCongruentialGenerator::MultiplicativeCongruentialGenerator(long long modulus, long long multiplier) :
+MultiplicativeCongruentialGenerator::MultiplicativeCongruentialGenerator(int64_t modulus, int64_t multiplier) :
 	LinearCongruentialGenerator(modulus, 1), multiplier(multiplier) {};
 
 void MultiplicativeCongruentialGenerator::updateState() {

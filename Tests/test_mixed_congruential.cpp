@@ -36,9 +36,9 @@ TEST(TestMixedCongruentialGenerator, TestFloatRange) {
 }
 
 TEST(TestMixedCongruentialGenerator, TestLargeModulus) {
-	long long modulus = LLONG_MAX, multiplier = 1;
+	int64_t modulus = LLONG_MAX, multiplier = 1;
 	MixedCongruentialGenerator mxcg{ modulus, multiplier, 0 }; /* 1 and 0 chosen so the result of rand will also be very large */
-	long long seed = modulus - 1;
+	int64_t seed = modulus - 1;
 	mxcg.seed(seed);
 	EXPECT_EQ(modulus, mxcg.getModulus());
 	EXPECT_EQ(mxcg.rand(), seed); /* Test that rand does not overflow with large modulus */

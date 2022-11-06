@@ -1,11 +1,12 @@
 #pragma once
 #include "linear_congruential.h"
+#include <cstdint>
 
 class MultiplicativeCongruentialGenerator : public LinearCongruentialGenerator {
-	long long multiplier;
+	int64_t multiplier;
 
 	void updateState() override;
 
 public:
-	MultiplicativeCongruentialGenerator(long long modulus, long long multiplier);
+	MultiplicativeCongruentialGenerator(int64_t modulus, int64_t multiplier);
 };

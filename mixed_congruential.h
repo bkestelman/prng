@@ -1,12 +1,13 @@
 #pragma once
 #include "linear_congruential.h"
+#include <cstdint>
 
 class MixedCongruentialGenerator : public LinearCongruentialGenerator {
-	long long multiplier;
-	long long increment;
+	int64_t multiplier;
+	int64_t increment;
 
 	void updateState() override;
 
 public:
-	MixedCongruentialGenerator(long long modulus, long long multiplier, long long increment);
+	MixedCongruentialGenerator(int64_t modulus, int64_t multiplier, int64_t increment);
 };
