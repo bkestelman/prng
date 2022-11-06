@@ -18,9 +18,15 @@
     <ClCompile Include="linear_congruential.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="multiplicative_congruential.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="linear_congruential.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="multiplicative_congruential.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -100,9 +100,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="linear_congruential.cpp" />
+    <ClCompile Include="multiplicative_congruential.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="linear_congruential.h" />
+    <ClInclude Include="multiplicative_congruential.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
