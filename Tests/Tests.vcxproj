@@ -45,6 +45,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="test_multiplicative_congruential.cpp" />
+    <ClCompile Include="test_stats.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\prng.vcxproj">
