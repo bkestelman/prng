@@ -40,3 +40,9 @@ TEST(TestStats, TestCorrelationScaleInvariance) {
 	vector<float> vec1_shifted{ 3, 5, 7 };
 	EXPECT_NEAR(correlation(vec1, vec2), correlation(vec1_shifted, vec2), 0.0001);
 }
+
+TEST(TestStats, TestAutocorrelation) {
+	int lag = 1;
+	vector<float> vec{ 1, 3, 5, 7 };
+	EXPECT_NEAR(autocorrelation(vec, lag), 0.25, 0.0001);
+}

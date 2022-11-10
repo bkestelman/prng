@@ -7,3 +7,4 @@ float mean(vector<float> nums);
 float variance(vector<float> nums);
 float std_dev(vector<float> nums);
 float correlation(vector<float> vec1, vector<float> vec2);
+float autocorrelation(vector<float> vec, int lag);
