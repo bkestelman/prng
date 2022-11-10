@@ -22,5 +22,5 @@ TEST(TestStats, TestStandardDeviation) {
 TEST(TestStats, TestCorrelation) {
 	vector<float> vec1{ 1, 3, 5 };
 	vector<float> vec2{ 2, 6, 10 };
-	EXPECT_EQ(correlation(vec1, vec1), 1);
+	EXPECT_NEAR(correlation(vec1, vec1), 1, 0.0001);
 }
