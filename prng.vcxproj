@@ -99,11 +99,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="common_generators.cpp" />
     <ClCompile Include="mixed_congruential.cpp" />
     <ClCompile Include="multiplicative_congruential.cpp" />
     <ClCompile Include="stats.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="common_generators.h" />
     <ClInclude Include="linear_congruential.h" />
     <ClInclude Include="mixed_congruential.h" />
     <ClInclude Include="multiplicative_congruential.h" />
