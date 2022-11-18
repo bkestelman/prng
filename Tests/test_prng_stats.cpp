@@ -4,7 +4,10 @@
 #include "../stats.h"
 
 TEST(TestPRNGStats, TestMultiplicativeAutocorrelation) {
-	/* Example from Gentle 1998 */
+	/* Example from Gentle 1998 
+	* The large lag 1 autocorrelation results from the small multiplier 
+	* (or from one close to the modulus)
+	*/
 	int64_t modulus = 31, multiplier = 3, seed = 9;
 	MultiplicativeCongruentialGenerator mcg{ modulus, multiplier };
 	mcg.seed(seed);
