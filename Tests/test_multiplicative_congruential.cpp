@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../multiplicative_congruential.h"
+#include "../include/multiplicative_congruential.h"
 #include <limits.h>
 TEST(TestMultiplicativeCongruentialGenerator, TestDefaultSeed) {
 	MultiplicativeCongruentialGenerator<> mcg{ 9, 1 };

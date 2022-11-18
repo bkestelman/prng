@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "pch.h"
-#include "../multiplicative_congruential.h"
-#include "../stats.h"
+#include "../include/multiplicative_congruential.h"
+#include "../include/stats.h"
 
 TEST(TestPRNGStats, TestMultiplicativeAutocorrelation) {
 	/* Example from Gentle 1998 

@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
 #include "pch.h"
-#include "../common_generators.h"
-#include "../multiplicative_congruential.h"
+#include "../include/common_generators.h"
+#include "../include/multiplicative_congruential.h"
 #include<cmath>
 
 TEST(TestMersenneMinimalStandard, TestMersenneModulus) {

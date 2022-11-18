@@ -18,6 +18,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\common_generators.cpp" />
+    <ClCompile Include="src\stats.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\common_generators.h" />
+    <ClInclude Include="include\linear_congruential.h" />
+    <ClInclude Include="include\mixed_congruential.h" />
+    <ClInclude Include="include\multiplicative_congruential.h" />
+    <ClInclude Include="include\stats.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <ProjectGuid>{181F39C4-AE4B-44F9-9B87-57596E813F64}</ProjectGuid>
@@ -69,6 +80,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -98,17 +112,11 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="common_generators.cpp" />
-    <ClCompile Include="stats.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="common_generators.h" />
-    <ClInclude Include="linear_congruential.h" />
-    <ClInclude Include="mixed_congruential.h" />
-    <ClInclude Include="multiplicative_congruential.h" />
-    <ClInclude Include="stats.h" />
-  </ItemGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>include</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "gtest/gtest.h"
-#include "../mixed_congruential.h"
+#include "../include/mixed_congruential.h"
 #include <limits.h>
 TEST(TestMixedCongruentialGenerator, TestDefaultSeed) {
 	MixedCongruentialGenerator<> mxcg { 9, 1, 0 };
