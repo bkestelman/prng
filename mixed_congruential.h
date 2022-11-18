@@ -2,12 +2,15 @@
 #include "linear_congruential.h"
 #include <cstdint>
 
-class MixedCongruentialGenerator : public LinearCongruentialGenerator {
+template<typename T = int64_t> class MixedCongruentialGenerator : public LinearCongruentialGenerator<T> {
 	int64_t multiplier;
 	int64_t increment;
 
-	void updateState() override;
+	void updateState() override {
+		state = (multiplier * state + increment) % modulus;
+	};
 
 public:
-	MixedCongruentialGenerator(int64_t modulus, int64_t multiplier, int64_t increment);
+	MixedCongruentialGenerator(T modulus, T multiplier, T increment) :
+		LinearCongruentialGenerator(modulus, 0), multiplier(multiplier), increment(increment) {};
 };

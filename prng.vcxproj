@@ -100,8 +100,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="common_generators.cpp" />
-    <ClCompile Include="mixed_congruential.cpp" />
-    <ClCompile Include="multiplicative_congruential.cpp" />
     <ClCompile Include="stats.cpp" />
   </ItemGroup>
   <ItemGroup>

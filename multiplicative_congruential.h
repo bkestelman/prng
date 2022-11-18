@@ -2,11 +2,14 @@
 #include "linear_congruential.h"
 #include <cstdint>
 
-class MultiplicativeCongruentialGenerator : public LinearCongruentialGenerator {
+template<typename T = int64_t> class MultiplicativeCongruentialGenerator : public LinearCongruentialGenerator<T> {
 	int64_t multiplier;
 
-	void updateState() override;
+	void updateState() override {
+		state = (multiplier * state) % modulus;
+	};
 
 public:
-	MultiplicativeCongruentialGenerator(int64_t modulus, int64_t multiplier);
+	MultiplicativeCongruentialGenerator(T modulus, T multiplier) :
+		LinearCongruentialGenerator(modulus, 1), multiplier(multiplier) {};
 };

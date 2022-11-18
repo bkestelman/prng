@@ -9,7 +9,7 @@ TEST(TestPRNGStats, TestMultiplicativeAutocorrelation) {
 	* (or from one close to the modulus)
 	*/
 	int64_t modulus = 31, multiplier = 3, seed = 9;
-	MultiplicativeCongruentialGenerator mcg{ modulus, multiplier };
+	MultiplicativeCongruentialGenerator<> mcg{ modulus, multiplier };
 	mcg.seed(seed);
 	vector<float> samples;
 	for (int i = 0; i < modulus - 1; i++) {

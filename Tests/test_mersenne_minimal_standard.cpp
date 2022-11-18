@@ -5,6 +5,6 @@
 #include<cmath>
 
 TEST(TestMersenneMinimalStandard, TestMersenneModulus) {
-	MultiplicativeCongruentialGenerator mcg = mersenneMinimalStandard();
+	MultiplicativeCongruentialGenerator<> mcg = mersenneMinimalStandard();
 	EXPECT_EQ(mcg.getModulus(), pow(2, 31) - 1);
 }
