@@ -38,5 +38,8 @@
     <ClInclude Include="include\stats.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\LFSR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

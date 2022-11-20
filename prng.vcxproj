@@ -28,6 +28,7 @@
     <ClInclude Include="include\mixed_congruential.h" />
     <ClInclude Include="include\multiplicative_congruential.h" />
     <ClInclude Include="include\stats.h" />
+    <ClInclude Include="include\LFSR.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
