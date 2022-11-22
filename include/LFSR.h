@@ -6,23 +6,24 @@
 class LFSR {
 	int size;
 	int bits;
-	int tap1Index, tap2Index;
+	int tap1IndexFromRight, tap2IndexFromRight;
 
 	static int PRIMITIVE_TRINOMIALS[5][2];
 
 	void updateState() {
-		int newBit = (bitVal(tap1Index) ^ bitVal(tap2Index)) << (size - 1);
+		int newBit = (bitVal(tap1IndexFromRight) ^ bitVal(tap2IndexFromRight)) << (size - 1);
 		bits = bits >> 1;
 		bits = newBit | bits;
 	}
 
 	void setTaps() {
-		tap1Index = PRIMITIVE_TRINOMIALS[size - 2][0] - 1;
-		tap2Index = PRIMITIVE_TRINOMIALS[size - 2][1] - 1;
+		tap1IndexFromRight = PRIMITIVE_TRINOMIALS[size - 2][0] - 1;
+		tap2IndexFromRight = PRIMITIVE_TRINOMIALS[size - 2][1] - 1;
 	}
 public:
 	/* LFSR with taps specified */
-	LFSR(int size, int seed, int tap1, int tap2) : size(size), bits(seed), tap1Index(tap1), tap2Index(tap2) {};
+	LFSR(int size, int seed, int tap1FromRight, int tap2FromRight) : size(size), bits(seed), 
+		tap1IndexFromRight(tap1FromRight), tap2IndexFromRight(tap2FromRight) {};
 	/* LFSR for given number of bits n, with taps chosen according to a primitive trinomial of degree n */
 	LFSR(int size, int seed) : size(size), bits(seed) { setTaps(); };
 	int rand() { updateState(); return bits & 1; };
@@ -30,6 +31,9 @@ public:
 	int bitVal(int indexFromRight) {
 		return (bits >> indexFromRight) & 1;
 	}
+
+	int getTap1IndexFromRight() { return tap1IndexFromRight; };
+	int getTap2IndexFromRight() { return tap2IndexFromRight; };
 };
 
 int LFSR::PRIMITIVE_TRINOMIALS[5][2] = {
