@@ -54,3 +54,10 @@ TEST(TestLFSR, TestTapsFromPrimitiveTrinomial) {
 	EXPECT_EQ(lfsr.rand(), 1);
 	EXPECT_EQ(lfsr.rand(), 1);
 }
+
+TEST(TestLFSR, TestPrimitiveTrinomialsHaveMersennePrimes) {
+	for (int i = 2; i < 10; i++) {
+		int mersennePrime = (1 << i) - 1;
+		int trinomial = LFSR::PRIMITIVE_TRINOMIALS.at(mersennePrime);
+	}
+}
